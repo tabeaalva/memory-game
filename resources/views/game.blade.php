@@ -55,8 +55,9 @@
             <template x-for="card in cards">
                 <div>
                     <button
-                        x-show="! card.cleared" :disabled="flippedCards.length >= 2"
-                        :style="'background: ' + (card.flipped ? card.color : '#999')" class="w-full h-32"
+                        :disabled="flippedCards.length >= 2 || card.cleared"
+                        :style="'background: ' + (card.flipped ? card.color : '#999')" 
+                        :class="(card.cleared? 'invisible' : '') + 'w-full h-32'"
                         @click="flipCard(card)">
                     </button>
                 </div>
