@@ -24,3 +24,6 @@ Route::get('/end', function () {
     return view('end');
 });
 
+Route::get('/copy', function () {
+    return view('copy');
+});
