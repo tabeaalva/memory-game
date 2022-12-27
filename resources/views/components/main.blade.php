@@ -12,5 +12,11 @@
              document.documentElement.classList.remove('dark')
          }
     </script>
-        @vite('resources/js/app.js')    
+        {{-- <x-data>{{username}}</x-data> --}}
+        @vite('resources/js/app.js') 
+        
 </head>
+
+{{$slot}}
+
+</html>

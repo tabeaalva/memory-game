@@ -1,9 +1,9 @@
-<x-head></x-head>
+<x-main>
 
 <body class=" max-w-md ml-auto mr-auto items-center bg-zinc-100 dark:bg-gray-900 grid place-items-center">
   <h1 class="text-5xl font-semibold mt-16 dark:text-gray-300">Memory Game</h1>
   <div class="mt-14 font-medium text-xl dark:text-gray-300">
-    <p class="mb-2" x-text="name">User: </p>
+    <p class="mb-2" x-text="name">User: {{$username}} </p>
     <p>Time:</p>
   </div>
 
@@ -20,5 +20,4 @@
     </a>
   </span>
 </body>
-
-</html>
+</x-main>

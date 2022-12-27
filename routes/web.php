@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\EnsureUsernameIsSet;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +18,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/game', function () {
-    return view('game');
+
+Route::middleware(EnsureUsernameIsSet::class)->group(function() {
+
+    Route::get('/game', function (Request $request) {
+        return view('game', [
+            'username' => $request->session()->get('username')
+        ]);
+    });
+    
+    Route::get('/end', function (Request $request) {
+        return view('end',[
+            'username' => $request->session()->get('username')
+        ]);
+    });
+});
+Route::post('/session/new', function (Request $request) {
+    $attributes = $request->validate([
+        'username' => 'required'
+    ]);
+    $request->session()->put('username', $attributes['username']);
+    return redirect('/game');
 });
 
-Route::get('/end', function () {
-    return view('end');
-});
-
-Route::get('/copy', function () {
-    return view('copy');
-});
