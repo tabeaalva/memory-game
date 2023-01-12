@@ -56,7 +56,7 @@
         function game() {
             return {
                 gameTimer: null,
-                time: 45,
+                time: 100,
                 cards: [ 
                     {color: 'green', flipped: false, cleared: false },
                     {color: 'blue', flipped: false, cleared: false },
@@ -123,7 +123,7 @@
 
                             
                          if(! this.remainingCards.length) {
-                            window.location.href = '/end';
+                            window.location.href = '/end?time=' + this.time;
                         }
                         } else {
                             await pause();

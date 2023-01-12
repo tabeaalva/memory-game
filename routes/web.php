@@ -28,7 +28,9 @@ Route::middleware(EnsureUsernameIsSet::class)->group(function() {
     });
     
     Route::get('/end', function (Request $request) {
+        $time = (int) ($request->query('time', 0));
         return view('end',[
+            'time' => $time,
             'username' => $request->session()->get('username')
         ]);
     });

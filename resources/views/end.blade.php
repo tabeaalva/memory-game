@@ -4,7 +4,7 @@
   <h1 class="text-5xl font-semibold mt-16 dark:text-gray-300">Memory Game</h1>
   <div class="mt-14 font-medium text-xl dark:text-gray-300">
     <p class="mb-2" x-text="name">User: {{$username}} </p>
-    <p>Time:</p>
+    <p x-text="timer">Remaining Time: {{$time}}</p>
   </div>
 
   <span class="isolate inline-flex rounded-md shadow-sm">
